@@ -1,2 +1,3 @@
-# ECOv002-L3T-L4T-JET
-ECOSTRESS Collection 2 JPL Evapotranspiration (JET) Product Generating Executable (PGE)
+# ECOSTRESS Collection 2 JPL Evapotranspiration (JET) Product Generating Executable (PGE)
+
+This software package has been refactored from the [ECOSTRESS Collection 2 Gridded & Tiled Products Generator](https://github.com/ECOSTRESS-Collection-2/ECOSTRESS-Collection-2) as an independent product pipeline for the ECOSTRESS Collection 2 JPL Evapotranspiration (JET), Evaporative Stress Index (ESI), and Water-Use Efficiency (WUE) products. This software package will serve as an ECOSTRESS Collection 2 reference for the development of the [ECOSTRESS Collection 3 JET PGE](https://github.com/ECOSTRESS-Collection-3/ECOv003-L3T-L4T-JET) and the [SBG Collection 1 JET PGE](https://github.com/sbg-tir/SBG-TIR-L4-JET).
