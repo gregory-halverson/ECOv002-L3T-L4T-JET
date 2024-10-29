@@ -27,12 +27,14 @@ with warnings.catch_warnings():
     tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
     # from keras.engine.saving import load_model
     from keras.models import load_model
+    from keras.saving import register_keras_serializable
 
 import rasters as rt
+from rasters import Raster, RasterGeometry
+
 from ..GEOS5FP import GEOS5FP
 from ..SRTM import SRTM
 from ..koppengeiger import load_koppen_geiger
-from rasters import Raster, RasterGeometry
 
 __author__ = "Gregory Halverson, Robert Freepartner"
 
@@ -64,6 +66,9 @@ class GEOS5FPNotAvailableError(IOError):
 class BlankOutputError(Exception):
     pass
 
+@register_keras_serializable()
+def mae(y_true, y_pred):
+    return tf.reduce_mean(tf.abs(y_true - y_pred))
 
 class FLiES(Model):
     logger = logging.getLogger(__name__)
@@ -138,7 +143,7 @@ class FLiES(Model):
             ANN_model_filename = DEFAULT_MODEL_FILENAME
 
         if ANN_model is None:
-            ANN_model = load_model(ANN_model_filename)
+            ANN_model = load_model(ANN_model_filename, custom_objects={'mae': mae})
 
         super(FLiES, self).__init__(
             working_directory=working_directory,
