@@ -16,13 +16,15 @@ from matplotlib.colors import LinearSegmentedColormap
 from scipy.stats import zscore
 
 import colored_logging as cl
+
 import rasters as rt
-from FLiES.FLiES import FLiES
-from GEDI import GEDICanopyHeight
-from GEOS5FP import GEOS5FP
-from ORNL.MODISCI import MODISCI
-from SRTM import SRTM
 from rasters import Raster, RasterGeometry, RasterGrid
+
+from ..FLiES.FLiES import FLiES
+from ..GEDI import GEDICanopyHeight
+from ..GEOS5FP import GEOS5FP
+from ..ORNL.MODISCI import MODISCI
+from ..SRTM import SRTM
 
 __author__ = "Gregory Halverson, Robert Freepartner"
 

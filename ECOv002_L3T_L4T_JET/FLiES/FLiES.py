@@ -17,9 +17,9 @@ from dateutil import parser
 from scipy.stats import zscore
 
 import colored_logging as cl
-from FLiES.daylight_hours import day_angle_rad_from_doy, solar_dec_deg_from_day_angle_rad
-from FLiES.solar_zenith_angle import sza_deg_from_lat_dec_hour
-from model.model import Model
+from .daylight_hours import day_angle_rad_from_doy, solar_dec_deg_from_day_angle_rad
+from .solar_zenith_angle import sza_deg_from_lat_dec_hour
+from ..model.model import Model
 
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")
@@ -29,9 +29,9 @@ with warnings.catch_warnings():
     from keras.models import load_model
 
 import rasters as rt
-from GEOS5FP import GEOS5FP
-from SRTM import SRTM
-from koppengeiger import load_koppen_geiger
+from ..GEOS5FP import GEOS5FP
+from ..SRTM import SRTM
+from ..koppengeiger import load_koppen_geiger
 from rasters import Raster, RasterGeometry
 
 __author__ = "Gregory Halverson, Robert Freepartner"

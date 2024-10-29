@@ -22,15 +22,18 @@ import rasters as rt
 from rasters import Raster, RasterGrid, RasterGeometry
 
 from .BESS.BESS import BESS
-from .ECOSTRESS.L2_LSTE import L2TLSTE
-from .ECOSTRESS.L2_STARS import L2TSTARS
-from .ECOSTRESS.L3_ET_PTJPL import L3TMET, L3TSEB, L3TSM, L3TJET
-from .ECOSTRESS.L4_ESI import L4TESI
-from .ECOSTRESS.L4_WUE import L4TWUE
-from .ECOSTRESS.exit_codes import SUCCESS_EXIT_CODE, ECOSTRESSExitCodeException, RUNCONFIG_FILENAME_NOT_SUPPLIED, \
+from .L2TLSTE import L2TLSTE
+from .L2TSTARS import L2TSTARS
+from .L3TJET import L3TJET
+from .L3TSM import L3TSM
+from .L3TSEB import L3TSEB
+from .L3TMET import L3TMET
+from .L4TESI import L4TESI
+from .L4TWUE import L4TWUE
+from .exit_codes import SUCCESS_EXIT_CODE, ECOSTRESSExitCodeException, RUNCONFIG_FILENAME_NOT_SUPPLIED, \
     MissingRunConfigValue, InputFilesInaccessible, UnableToParseRunConfig, BlankOutput, DaytimeFilter, BLANK_OUTPUT, \
     ANCILLARY_SERVER_UNREACHABLE
-from .ECOSTRESS.runconfig import read_runconfig, ECOSTRESSRunConfig
+from ECOv002_L3T_L4T_JET.runconfig import read_runconfig, ECOSTRESSRunConfig
 from .ECOSTRESS_colors import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_COLORMAP, RH_COLORMAP, GPP_COLORMAP
 from .FLiES import BlankOutputError
 from .FLiES.FLiES import FLiES
@@ -46,6 +49,8 @@ from .STIC import STIC
 from .downscaling.linear_downscale import linear_downscale, bias_correct
 from .model.model import check_distribution
 from .timer import Timer
+
+from .PGEVersion import PGEVersion
 
 with open(join(abspath(dirname(__file__)), "version.txt")) as f:
     version = f.read()
@@ -745,7 +750,7 @@ class L3TL4TJETConfig(ECOSTRESSRunConfig):
             L4T_WUE_browse_filename = f"{L4T_WUE_directory}.png"
 
             PGE_name = "L3T_L4T_JET"
-            PGE_version = ECOSTRESS.PGEVersion
+            PGE_version = PGEVersion
 
             self.working_directory = working_directory
             self.sources_directory = sources_directory
@@ -979,7 +984,7 @@ def L3T_L4T_JET(
         L2T_STARS_granule = L2TSTARS(L2T_STARS_filename)
 
         metadata = L2T_STARS_granule.metadata_dict
-        metadata["StandardMetadata"]["PGEVersion"] = ECOSTRESS.PGEVersion
+        metadata["StandardMetadata"]["PGEVersion"] = PGEVersion
         metadata["StandardMetadata"]["PGEName"] = "L3T_L4T_JET"
         metadata["StandardMetadata"]["ProcessingLevelID"] = "L3T"
         metadata["StandardMetadata"]["SISName"] = "Level 3 Product Specification Document"
