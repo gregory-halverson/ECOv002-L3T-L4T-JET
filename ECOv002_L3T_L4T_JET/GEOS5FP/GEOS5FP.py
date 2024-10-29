@@ -25,9 +25,9 @@ from urllib3 import Retry
 
 import colored_logging as cl
 import rasters as rt
-from downscaling import linear_downscale, DEFAULT_UPSAMPLING, DEFAULT_DOWNSAMPLING, bias_correct
+from ..downscaling import linear_downscale, DEFAULT_UPSAMPLING, DEFAULT_DOWNSAMPLING, bias_correct
 from rasters import Raster, RasterGeometry
-from timer import Timer
+from ..timer import Timer
 
 __author__ = 'Gregory Halverson'
 

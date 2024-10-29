@@ -1,6 +1,4 @@
-import base64
 import hashlib
-import json
 import logging
 import os
 import posixpath
@@ -11,7 +9,6 @@ from datetime import date
 from fnmatch import fnmatch
 from http.cookiejar import CookieJar
 from os import makedirs, remove
-from os.path import abspath
 from os.path import dirname
 from os.path import exists
 from os.path import getsize
@@ -27,8 +24,8 @@ from dateutil import parser
 from pycksum import cksum
 
 import colored_logging as cl
-from ECOSTRESS.exit_codes import DownloadFailed
-from DAAC.HTTP import CONNECTION_CLOSE
+from ..exit_codes import DownloadFailed
+from ..DAAC.HTTP import CONNECTION_CLOSE
 
 DEFAULT_REMOTE = "https://e4ftl01.cr.usgs.gov"
 RETRIES = 6

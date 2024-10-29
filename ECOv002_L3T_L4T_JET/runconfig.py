@@ -3,8 +3,7 @@ from os.path import exists
 
 import untangle
 
-import colored_logging as cl
-from ECOSTRESS.exit_codes import UnableToOpenRunConfig, UnableToParseRunConfig, ECOSTRESSExitCodeException
+from .exit_codes import UnableToOpenRunConfig, UnableToParseRunConfig, ECOSTRESSExitCodeException
 
 logger = logging.getLogger(__name__)
 
@@ -64,6 +63,7 @@ def read_runconfig(filename: str) -> dict:
         raise UnableToParseRunConfig(f"unable to parse run-config file: {filename}")
 
     return config
+
 
 class ECOSTRESSRunConfig:
     def read_runconfig(self, filename: str) -> dict:
