@@ -12,13 +12,13 @@ from scipy.stats import zscore
 from datetime import date
 import rasters as rt
 
-from BESS import BESS, DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
+from ..BESS import BESS, DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
 
-from GEDI import GEDICanopyHeight
+from ..GEDI import GEDICanopyHeight
 
-from GEOS5FP import GEOS5FP
-from ORNL.MODISCI import MODISCI
-from SRTM import SRTM
+from ..GEOS5FP import GEOS5FP
+from ..ORNL.MODISCI import MODISCI
+from ..SRTM import SRTM
 
 from rasters import Raster, RasterGeometry, RasterGrid
 

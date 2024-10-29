@@ -24,6 +24,8 @@ import colored_logging as cl
 
 from .ECOSTRESS_granule import ECOSTRESSGranule
 
+DEFAULT_JSON_INDENT = 2
+
 logger = logging.getLogger(__name__)
 
 class ECOSTRESSTiledGranule(ECOSTRESSGranule):

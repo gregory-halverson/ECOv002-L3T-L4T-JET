@@ -18,7 +18,7 @@ import colored_logging as cl
 from ..LPDAAC import LPDAACDataPool
 from rasters import Raster, RasterGeometry, RasterGrid
 
-from timer import Timer
+from ..timer import Timer
 import pandas as pd
 
 DEFAULT_WORKING_DIRECTORY = "."

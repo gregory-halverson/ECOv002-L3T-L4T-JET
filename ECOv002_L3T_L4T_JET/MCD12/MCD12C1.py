@@ -1,7 +1,7 @@
 import logging
 import posixpath
 from os.path import abspath, expanduser, join
-from LPDAAC import LPDAACDataPool
+from ..LPDAAC import LPDAACDataPool
 from rasters import Raster, RasterGeometry
 
 # URL = "https://e4ftl01.cr.usgs.gov/MOTA/MCD12C1.006/2019.01.01/MCD12C1.A2019001.006.2020220162300.hdf"

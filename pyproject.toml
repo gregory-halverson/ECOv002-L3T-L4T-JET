@@ -23,6 +23,7 @@ dependencies = [
     "matplotlib",
     "msgpack",
     "msgpack_numpy",
+    "netCDF4",
     "numpy",
     "pyproj",
     "rasterio",
@@ -38,6 +39,7 @@ dependencies = [
     "scipy",
     "six",
     "tensorflow",
+    "untangle",
     "xmltodict"
 ]
 

@@ -9,11 +9,11 @@ import warnings
 
 import colored_logging as cl
 import rasters as rt
-from GEOS5FP import GEOS5FP
-from SRTM import SRTM
-from model.model import DEFAULT_PREVIEW_QUALITY, DEFAULT_RESAMPLING, Model
+from ..GEOS5FP import GEOS5FP
+from ..SRTM import SRTM
+from ..model.model import DEFAULT_PREVIEW_QUALITY, DEFAULT_RESAMPLING, Model
 from rasters import Raster, RasterGrid
-from timer import Timer
+from ..timer import Timer
 
 __author__ = 'Kaniska Mallick, Madeleine Pascolini-Campbell, Gregory Halverson'
 

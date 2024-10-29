@@ -6,7 +6,7 @@ from shutil import move
 from zipfile import ZipFile
 import rasters as rt
 from rasters import RasterGeometry
-from timer import Timer
+from ..timer import Timer
 
 DEFAULT_WORKING_DIRECTORY = "."
 DEFAULT_DOWNLOAD_DIRECTORY = "NLCD_download"
