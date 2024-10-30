@@ -21,6 +21,9 @@ import colored_logging as cl
 import rasters as rt
 from rasters import Raster, RasterGrid, RasterGeometry
 
+from koppengeiger import load_koppen_geiger
+import FLiESANN
+
 from .BESS.BESS import BESS
 from .L2TLSTE import L2TLSTE
 from .L2TSTARS import L2TSTARS
@@ -1098,18 +1101,43 @@ def L3T_L4T_JET(
 
         logger.info(f"running Forest Light Environmental Simulator for {cl.place(tile)} at {cl.time(time_UTC)} UTC")
 
-        Ra, SWin_FLiES_ANN_raw, UV, VIS, NIR, VISdiff, NIRdiff, VISdir, NIRdir = FLiES_ANN_model.FLiES(
-            geometry=geometry,
-            target=tile,
-            time_UTC=time_UTC,
+        # Ra, SWin_FLiES_ANN_raw, UV, VIS, NIR, VISdiff, NIRdiff, VISdir, NIRdir = FLiES_ANN_model.FLiES(
+        #     geometry=geometry,
+        #     target=tile,
+        #     time_UTC=time_UTC,
+        #     albedo=albedo,
+        #     COT=COT,
+        #     AOT=AOT,
+        #     SZA=SZA,
+        #     vapor_gccm=vapor_gccm,
+        #     ozone_cm=ozone_cm,
+        #     elevation_km=elevation_km
+        # )
+
+        doy_solar = time_solar.timetuple().tm_yday
+        kg = load_koppen_geiger(albedo.geometry)
+
+        FLiES_results = FLiESANN.process_FLiES(
+            doy=doy_solar,
             albedo=albedo,
             COT=COT,
             AOT=AOT,
-            SZA=SZA,
             vapor_gccm=vapor_gccm,
             ozone_cm=ozone_cm,
-            elevation_km=elevation_km
+            elevation_km=elevation_km,
+            SZA=SZA,
+            KG_climate=kg
         )
+
+        Ra = FLiES_results["Ra"]
+        SWin_FLiES_ANN_raw = FLiES_results["Rg"]
+        UV = FLiES_results["UV"]
+        VIS = FLiES_results["VIS"]
+        NIR = FLiES_results["NIR"]
+        VISdiff = FLiES_results["VISdiff"]
+        NIRdiff = FLiES_results["NIRdiff"]
+        VISdir = FLiES_results["VISdir"]
+        NIRdir = FLiES_results["NIRdir"]
 
         SWin_FLiES_LUT = FLiES_LUT_model.FLiES_LUT(
             geometry=geometry,

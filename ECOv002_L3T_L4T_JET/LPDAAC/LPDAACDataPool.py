@@ -1,3 +1,4 @@
+import netrc
 import hashlib
 import logging
 import os
@@ -25,7 +26,10 @@ from pycksum import cksum
 
 import colored_logging as cl
 from ..exit_codes import DownloadFailed
-from ..DAAC.HTTP import CONNECTION_CLOSE
+
+CONNECTION_CLOSE = {
+    "Connection": "close",
+}
 
 DEFAULT_REMOTE = "https://e4ftl01.cr.usgs.gov"
 RETRIES = 6
@@ -53,6 +57,13 @@ class LPDAACDataPool:
     def __init__(self, username: str = None, password: str = None, remote: str = None, offline_ok: bool = False):
         if remote is None:
             remote = DEFAULT_REMOTE
+
+        if username is None or password is None:
+            try:
+                netrc_file = netrc.netrc()
+                username, _, password = netrc_file.authenticators("urs.earthdata.nasa.gov")
+            except Exception as e:
+                logger.warning("netrc credentials not found for urs.earthdata.nasa.gov")
 
         if username is None or password is None:
             if not "LPDAAC_USERNAME" in os.environ or not "LPDAAC_PASSWORD" in os.environ:

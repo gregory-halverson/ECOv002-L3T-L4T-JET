@@ -10,21 +10,22 @@ from typing import Callable, Dict, List
 import numpy as np
 
 import rasters as rt
+from rasters import Raster, RasterGeometry
 
-__author__ = "Gregory Halverson"
+from modisci import MODISCI
 
 from ..BESS import DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
 
 from ..GEDI import GEDICanopyHeight
 
 from ..GEOS5FP import GEOS5FP
-from ..ORNL.MODISCI import MODISCI
+
 from ..SRTM import SRTM
 
 from ..PTJPL import PTJPL
 from ..SoilGrids import SoilGrids
 
-from rasters import Raster, RasterGeometry
+__author__ = "Gregory Halverson"
 
 DEFAULT_WORKING_DIRECTORY = "."
 DEFAULT_GEOS5FP_DOWNLOAD = "GEOS5FP_download_directory"

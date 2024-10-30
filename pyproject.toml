@@ -16,11 +16,14 @@ classifiers = [
 ]
 dependencies = [
     "colored_logging",
+    "FLiESANN",
+    "koppengeiger",
     "pandas",
     "pillow",
     "geopandas",
     "h5py",
     "matplotlib",
+    "modisci>=1.1.1",
     "msgpack",
     "msgpack_numpy",
     "netCDF4",
