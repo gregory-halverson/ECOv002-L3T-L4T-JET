@@ -21,6 +21,7 @@ dependencies = [
     "geopandas",
     "h5py",
     "matplotlib",
+    "modisci",
     "msgpack",
     "msgpack_numpy",
     "netCDF4",
