@@ -17,7 +17,6 @@ from ..BESS import BESS, DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFA
 from ..GEDI import GEDICanopyHeight
 
 from ..GEOS5FP import GEOS5FP
-from ..ORNL.MODISCI import MODISCI
 from ..SRTM import SRTM
 
 from rasters import Raster, RasterGeometry, RasterGrid

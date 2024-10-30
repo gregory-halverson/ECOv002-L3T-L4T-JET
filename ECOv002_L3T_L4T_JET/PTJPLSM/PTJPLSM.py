@@ -18,7 +18,6 @@ from ..BESS import DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DO
 from ..GEDI import GEDICanopyHeight
 
 from ..GEOS5FP import GEOS5FP
-from ..ORNL.MODISCI import MODISCI
 from ..SRTM import SRTM
 
 from ..PTJPL import PTJPL
@@ -83,7 +82,6 @@ class PTJPLSM(PTJPL):
             GEOS5FP_products: str = None,
             GEDI_connection: GEDICanopyHeight = None,
             GEDI_download: str = None,
-            ORNL_connection: MODISCI = None,
             CI_directory: str = None,
             soil_grids_connection: SoilGrids = None,
             soil_grids_download: str = None,
@@ -128,7 +126,6 @@ class PTJPLSM(PTJPL):
             GEOS5FP_products=GEOS5FP_products,
             GEDI_connection=GEDI_connection,
             GEDI_download=GEDI_download,
-            ORNL_connection=ORNL_connection,
             CI_directory=CI_directory,
             intermediate_directory=intermediate_directory,
             preview_quality=preview_quality,

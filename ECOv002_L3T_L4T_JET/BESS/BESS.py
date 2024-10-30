@@ -20,10 +20,11 @@ import colored_logging as cl
 import rasters as rt
 from rasters import Raster, RasterGeometry, RasterGrid
 
+from modisci import load_clumping_index
+
 from ..FLiES.FLiES import FLiES
 from ..GEDI import GEDICanopyHeight
 from ..GEOS5FP import GEOS5FP
-from ..ORNL.MODISCI import MODISCI
 from ..SRTM import SRTM
 
 __author__ = "Gregory Halverson, Robert Freepartner"
@@ -87,7 +88,6 @@ class BESS(FLiES):
             GEOS5FP_products: str = None,
             GEDI_connection: GEDICanopyHeight = None,
             GEDI_download: str = None,
-            ORNL_connection: MODISCI = None,
             CI_directory: str = None,
             intermediate_directory: str = None,
             preview_quality: int = DEFAULT_PREVIEW_QUALITY,
@@ -146,20 +146,6 @@ class BESS(FLiES):
                 raise GEDINotAvailable(f"unable to prepare GEDI: {GEDI_download}")
 
         self.GEDI_connection = GEDI_connection
-
-        if ORNL_connection is None:
-            if CI_directory is None:
-                CI_directory = join(static_directory, DEFAULT_CI_DOWNLOAD)
-
-            try:
-                self.logger.info(f"preparing MODIS clumping index dataset: {cl.dir(CI_directory)}")
-                ORNL_connection = MODISCI(directory=CI_directory)
-                filename = ORNL_connection.download()
-                self.logger.info(f"MODIS clumping index ready: {cl.file(filename)}")
-            except Exception as e:
-                raise CINotAvailable(f"unable to prepare clumping index: {CI_directory}")
-
-        self.ORNL_connection = ORNL_connection
         self.passes = passes
         self.initialize_Tf_with_ST = initialize_Tf_with_ST
         self.downscale_air = downscale_air
@@ -344,7 +330,7 @@ class BESS(FLiES):
         return image
 
     def CI(self, geometry: RasterGeometry) -> Raster:
-        return self.ORNL_connection.CI(geometry=geometry, resampling=self.resampling)
+        return load_clumping_index(geometry, resampling="nearest")
 
     def NDVI_minimum(self, geometry: RasterGeometry) -> Raster:
         filename = join(abspath(dirname(__file__)), "NDVI_minimum.tif")
