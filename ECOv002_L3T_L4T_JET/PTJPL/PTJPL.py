@@ -15,13 +15,10 @@ import rasters as rt
 from rasters import Raster, RasterGeometry, RasterGrid
 
 from modisci import MODISCI
-
-from ..BESS import BESS, DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
-
-from ..GEDI import GEDICanopyHeight
-
+from gedi_canopy_height import GEDICanopyHeight
 from geos5fp import GEOS5FP
 
+from ..BESS import BESS, DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
 from ..SRTM import SRTM
 
 __author__ = "Gregory Halverson"
