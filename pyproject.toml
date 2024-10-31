@@ -43,6 +43,7 @@ dependencies = [
     "scipy",
     "shapely",
     "six",
+    "soil-capacity-wilting",
     "sun-angles",
     "tensorflow",
     "untangle",
