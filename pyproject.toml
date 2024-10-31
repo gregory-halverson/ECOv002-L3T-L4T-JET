@@ -42,6 +42,7 @@ dependencies = [
     "scikit-learn",
     "scipy",
     "six",
+    "sun-angles",
     "tensorflow",
     "untangle",
     "xmltodict"

@@ -24,6 +24,7 @@ from rasters import Raster, RasterGrid, RasterGeometry
 from koppengeiger import load_koppen_geiger
 import FLiESANN
 from geos5fp import GEOS5FP, FailedGEOS5FPDownload
+from sun_angles import calculate_SZA_from_DOY_and_hour
 
 from .BESS.BESS import BESS
 from .L2TLSTE import L2TLSTE
@@ -40,7 +41,7 @@ from .exit_codes import SUCCESS_EXIT_CODE, ECOSTRESSExitCodeException, RUNCONFIG
 from ECOv002_L3T_L4T_JET.runconfig import read_runconfig, ECOSTRESSRunConfig
 from .ECOSTRESS_colors import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_COLORMAP, RH_COLORMAP, GPP_COLORMAP
 from .FLiES import BlankOutputError
-from .FLiES.FLiES import FLiES
+# from .FLiES.FLiES import FLiES
 from .FLiES.FLiESLUT import FLiESLUT
 from .LPDAAC.LPDAACDataPool import LPDAACServerUnreachable
 from .MCD12.MCD12C1 import MCD12C1
@@ -1045,12 +1046,12 @@ def L3T_L4T_JET(
             show_distribution=show_distribution
         )
 
-        FLiES_ANN_model = FLiES(
-            working_directory=working_directory,
-            GEOS5FP_connection=GEOS5FP_connection,
-            save_intermediate=save_intermediate,
-            show_distribution=show_distribution
-        )
+        # FLiES_ANN_model = FLiES(
+        #     working_directory=working_directory,
+        #     GEOS5FP_connection=GEOS5FP_connection,
+        #     save_intermediate=save_intermediate,
+        #     show_distribution=show_distribution
+        # )
 
 
         MCD12_connnection = MCD12C1(
@@ -1076,7 +1077,13 @@ def L3T_L4T_JET(
             show_distribution=show_distribution
         )
 
-        SZA = FLiES_ANN_model.SZA(day_of_year=day_of_year, hour_of_day=hour_of_day, geometry=geometry)
+        # SZA = FLiES_ANN_model.SZA(day_of_year=day_of_year, hour_of_day=hour_of_day, geometry=geometry)
+        SZA = calculate_SZA_from_DOY_and_hour(
+            lat=geometry.lat,
+            lon=geometry.lon,
+            DOY=day_of_year,
+            hour=hour_of_day
+        )
 
         check_distribution(SZA, "SZA", date_UTC=date_UTC, target=tile)
 
