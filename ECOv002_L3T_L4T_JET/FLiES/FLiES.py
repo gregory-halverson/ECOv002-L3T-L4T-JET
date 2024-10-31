@@ -32,9 +32,11 @@ with warnings.catch_warnings():
 import rasters as rt
 from rasters import Raster, RasterGeometry
 
-from ..GEOS5FP import GEOS5FP
+from geos5fp import GEOS5FP
+from koppengeiger import load_koppen_geiger
+
 from ..SRTM import SRTM
-from ..koppengeiger import load_koppen_geiger
+
 
 __author__ = "Gregory Halverson, Robert Freepartner"
 

@@ -21,10 +21,11 @@ import rasters as rt
 from rasters import Raster, RasterGeometry, RasterGrid
 
 from modisci import MODISCI
+from geos5fp import GEOS5FP
+from gedi_canopy_height import GEDICanopyHeight
 
 from ..FLiES.FLiES import FLiES
-from ..GEDI import GEDICanopyHeight
-from ..GEOS5FP import GEOS5FP
+
 from ..SRTM import SRTM
 
 __author__ = "Gregory Halverson, Robert Freepartner"
