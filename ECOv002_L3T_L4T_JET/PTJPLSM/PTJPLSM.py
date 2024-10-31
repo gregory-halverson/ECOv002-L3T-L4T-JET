@@ -19,8 +19,6 @@ from ..BESS import DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DO
 
 from ..GEDI import GEDICanopyHeight
 
-
-
 from ..SRTM import SRTM
 
 from ..PTJPL import PTJPL
