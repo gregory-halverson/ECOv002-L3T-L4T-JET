@@ -13,12 +13,13 @@ import rasters as rt
 from rasters import Raster, RasterGeometry
 
 from modisci import MODISCI
+from geos5fp import GEOS5FP
 
 from ..BESS import DEFAULT_DOWNSCALE_AIR, DEFAULT_DOWNSCALE_HUMIDITY, DEFAULT_DOWNSCALE_MOISTURE
 
 from ..GEDI import GEDICanopyHeight
 
-from ..GEOS5FP import GEOS5FP
+
 
 from ..SRTM import SRTM
 

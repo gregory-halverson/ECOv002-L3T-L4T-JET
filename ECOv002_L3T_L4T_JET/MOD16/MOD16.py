@@ -10,18 +10,19 @@ import logging
 from typing import Callable
 from datetime import datetime
 from os.path import join, abspath, dirname, expanduser
-
 import numpy as np
 import pandas as pd
 from numpy import where, nan, exp, array, isnan, logical_and, clip, float32
 import warnings
+
 import rasters as rt
+from rasters import Raster, RasterGrid, RasterGeometry
+from geos5fp import GEOS5FP
+
 from ..FLiES import FLiES
-from ..GEOS5FP import GEOS5FP
 from ..MCD12.MCD12C1 import MCD12C1
 from ..SRTM import SRTM
 from ..model.model import DEFAULT_PREVIEW_QUALITY, DEFAULT_RESAMPLING
-from rasters import Raster, RasterGrid, RasterGeometry
 
 __author__ = 'Kaniska Mallick, Adam Purdy, Gregory Halverson'
 

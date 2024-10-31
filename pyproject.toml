@@ -21,6 +21,7 @@ dependencies = [
     "pandas",
     "pillow",
     "geopandas",
+    "geos5fp",
     "h5py",
     "matplotlib",
     "modisci>=1.1.1",

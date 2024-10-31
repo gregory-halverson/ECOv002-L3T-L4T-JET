@@ -23,6 +23,7 @@ from rasters import Raster, RasterGrid, RasterGeometry
 
 from koppengeiger import load_koppen_geiger
 import FLiESANN
+from geos5fp import GEOS5FP, FailedGEOS5FPDownload
 
 from .BESS.BESS import BESS
 from .L2TLSTE import L2TLSTE
@@ -41,7 +42,6 @@ from .ECOSTRESS_colors import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_CO
 from .FLiES import BlankOutputError
 from .FLiES.FLiES import FLiES
 from .FLiES.FLiESLUT import FLiESLUT
-from .GEOS5FP import GEOS5FP, FailedGEOS5FPDownload
 from .LPDAAC.LPDAACDataPool import LPDAACServerUnreachable
 from .MCD12.MCD12C1 import MCD12C1
 from .MOD16.MOD16 import MOD16
