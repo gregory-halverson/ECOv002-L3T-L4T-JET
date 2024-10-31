@@ -1059,6 +1059,7 @@ def L3T_L4T_JET(
             download_directory=MCD12_directory
         )
 
+        # FIXME replace FLiESLUT sub-module with package
         FLiES_LUT_model = FLiESLUT(
             working_directory=working_directory,
             static_directory=static_directory,
@@ -1068,6 +1069,7 @@ def L3T_L4T_JET(
             show_distribution=show_distribution
         )
 
+        # FIXME replace BESS sub-module with package
         BESS_model = BESS(
             working_directory=working_directory,
             GEDI_download=GEDI_directory,

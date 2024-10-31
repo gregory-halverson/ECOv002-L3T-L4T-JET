@@ -13,22 +13,14 @@ from typing import Callable
 import netCDF4
 from dateutil import parser
 
-from ..MCD12.MCD12C1 import MCD12C1
-from rasters import RasterGeometry, Raster
-
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
-    import tensorflow as tf
-
-    tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-    # from keras.engine.saving import load_model
-
-from geos5fp import GEOS5FP
-from ..SRTM import SRTM
-
 import numpy as np
 import rasters as rt
+from rasters import RasterGeometry, Raster
 
+from geos5fp import GEOS5FP
+
+from ..SRTM import SRTM
+from ..MCD12.MCD12C1 import MCD12C1
 from .FLiES import FLiES
 
 __author__ = "Gregory Halverson, Robert Freepartner"
