@@ -41,12 +41,10 @@ from .exit_codes import SUCCESS_EXIT_CODE, ECOSTRESSExitCodeException, RUNCONFIG
 from ECOv002_L3T_L4T_JET.runconfig import read_runconfig, ECOSTRESSRunConfig
 from .ECOSTRESS_colors import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_COLORMAP, RH_COLORMAP, GPP_COLORMAP
 from .FLiES import BlankOutputError
-# from .FLiES.FLiES import FLiES
 from .FLiES.FLiESLUT import FLiESLUT
 from .LPDAAC.LPDAACDataPool import LPDAACServerUnreachable
 from .MCD12.MCD12C1 import MCD12C1
 from .MOD16.MOD16 import MOD16
-from .NLCD import NLCDUnreachable
 from .PTJPL import PTJPL
 from .PTJPLSM import PTJPLSM
 from .STIC import STIC
@@ -1926,7 +1924,7 @@ def L3T_L4T_JET(
         logger.exception(exception)
         exit_code = BLANK_OUTPUT
 
-    except (FailedGEOS5FPDownload, LPDAACServerUnreachable, NLCDUnreachable, ConnectionError) as exception:
+    except (FailedGEOS5FPDownload, LPDAACServerUnreachable, ConnectionError) as exception:
         logger.exception(exception)
         exit_code = ANCILLARY_SERVER_UNREACHABLE
 
