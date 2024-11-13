@@ -25,21 +25,12 @@ from koppengeiger import load_koppen_geiger
 import FLiESANN
 from geos5fp import GEOS5FP, FailedGEOS5FPDownload
 from sun_angles import calculate_SZA_from_DOY_and_hour
+from ECOv002_granules import L2TLSTE, L2TSTARS, L3TJET, L3TSM, L3TSEB, L3TMET, L4TESI, L4TWUE
+from ECOv002_granules import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_COLORMAP, RH_COLORMAP, GPP_COLORMAP
 
+from .exit_codes import *
 from .BESS.BESS import BESS
-from .L2TLSTE import L2TLSTE
-from .L2TSTARS import L2TSTARS
-from .L3TJET import L3TJET
-from .L3TSM import L3TSM
-from .L3TSEB import L3TSEB
-from .L3TMET import L3TMET
-from .L4TESI import L4TESI
-from .L4TWUE import L4TWUE
-from .exit_codes import SUCCESS_EXIT_CODE, ECOSTRESSExitCodeException, RUNCONFIG_FILENAME_NOT_SUPPLIED, \
-    MissingRunConfigValue, InputFilesInaccessible, UnableToParseRunConfig, BlankOutput, DaytimeFilter, BLANK_OUTPUT, \
-    ANCILLARY_SERVER_UNREACHABLE
-from ECOv002_L3T_L4T_JET.runconfig import read_runconfig, ECOSTRESSRunConfig
-from .ECOSTRESS_colors import ET_COLORMAP, SM_COLORMAP, WATER_COLORMAP, CLOUD_COLORMAP, RH_COLORMAP, GPP_COLORMAP
+from .runconfig import read_runconfig, ECOSTRESSRunConfig
 from .FLiES import BlankOutputError
 from .FLiES.FLiESLUT import FLiESLUT
 from .LPDAAC.LPDAACDataPool import LPDAACServerUnreachable
