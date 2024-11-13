@@ -62,8 +62,8 @@ dev = [
 ECOv002_L3T_L4T_JET = ["*.txt"]
 
 [project.urls]
-"Homepage" = "https://github.com/ECOSTRESS-Collection-2/ECOv002_L3T_L4T_JET"
+"Homepage" = "https://github.com/ECOSTRESS-Collection-2/ECOv002-L3T-L4T-JET"
 
 [tool.setuptools.packages.find]
 include = ["ECOv002_L3T_L4T_JET"]
-exclude = ["ECOv002_L2T_STARS_21485_013_11SPS_20220420_0700_01", "ECOv002_L2T_LSTE_21485_013_11SPS_20220420T211350_0601_01"]
+exclude = []
