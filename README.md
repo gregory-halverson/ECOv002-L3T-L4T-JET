@@ -21,3 +21,44 @@ NASA Jet Propulsion Laboratory 329F
 [Claire Villanueva-Weeks](https://github.com/clairesvw) (she/her)<br>
 [claire.s.villanueva-weeks@jpl.nasa.gov](mailto:claire.s.villanueva-weeks@jpl.nasa.gov)<br>
 NASA Jet Propulsion Laboratory 329G
+
+## Authentication
+
+This package requires an [EarthData](https://urs.earthdata.nasa.gov/) account and reads EarthData credentials from `~/.netrc` in the following format:
+
+```
+machine urs.earthdata.nasa.gov
+login <USERNAME>
+password <PASSWORD>
+```
+
+## Environment
+
+On macOS, there are issues with installing `pykdtree` using pip, so it's better to use a mamba environment and install the `pykdtree` mamba package.
+
+```
+mamba create -y -n ECOv002-L3T-L4T-JET -c conda-forge python=3.11 jupyter pykdtree 
+mamba activate ECOv002-L3T-L4T-JET
+```
+
+## Installation
+
+Install this package from PyPi using the name `ECOv002-L3T-L4T-JET` with dashes:
+
+```
+pip install ECOv002-L3T-L4T-JET
+```
+
+You can also install development versions of this package directly from a clone of this repository:
+
+```
+pip install .
+```
+
+## Usage
+
+Import this package with the name `ECOv002_L3T_L4T_JET` with underscores:
+
+```
+import ECOv002_L3T_L4T_JET
+```
