@@ -18,6 +18,8 @@ dependencies = [
     "affine",
     "astropy",
     "colored_logging",
+    "ECOv002-CMR",
+    "ECOv002-granules",
     "FLiESANN",
     "gedi-canopy-height",
     "geopandas",
